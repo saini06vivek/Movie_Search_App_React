@@ -2,6 +2,7 @@ import MovieCard from "../components/MovieCard";
 import { useState, useEffect } from "react";
 import { searchMovies, getPopularMovies } from "../services/api";
 import "../css/Home.css";
+import { Link } from "react-router-dom";
 
 function Home() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -9,11 +10,15 @@ function Home() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         const loadPopularMovies = async () => {
             try {
                 const popularMovies = await getPopularMovies();
                 setMovies(popularMovies);
+                navigate("/");
+                
             } catch (err) {
                 console.log(err);
                 setError("Failed to load movies...");
