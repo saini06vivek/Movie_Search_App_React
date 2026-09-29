@@ -14,7 +14,7 @@ function App() {
     <NavBar/>
       <main className="main-content">
         <Routes>
-          <Route path='/' element={< Home />} />
+          <Route path='/Movie_Search_App_React' element={< Home />} />
           <Route path='/favorites' element={< Favorites />} />
         </Routes>
       </main>
